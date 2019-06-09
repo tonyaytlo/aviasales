@@ -1,0 +1,12 @@
+ext {
+    kotlinVersion = '1.3.31'
+    constraintVersion = '2.0.0-beta1'
+    recyclerViewVersion = '1.1.0-alpha06'
+    cardViewVersion = '1.0.0'
+    archLifecycleVersion = '2.2.0-alpha01'
+    coroutineVersion = '1.2.1'
+    okhttpVersion = '3.14.2'
+    retrofitVersion = '2.6.0'
+    koinVersion = '2.0.1'
+    googleMapsVersion = '16.1.0'
+}

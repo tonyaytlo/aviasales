@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.fr_search.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-
 class SearchFragment : BaseFragment() {
 
     private val viewModel: SearchViewModel by viewModel {
@@ -20,7 +19,6 @@ class SearchFragment : BaseFragment() {
             arguments?.getBoolean(ARG_IS_DEPARTURE) ?: false
         )
     }
-
     private val adapter by lazy { SearchAdapter(viewModel::onItemClick) }
 
     override fun getLayout() = R.layout.fr_search

@@ -14,6 +14,7 @@ import com.aytlo.tony.aviasales.presentation.base.viewmodel.BaseViewModel
 import org.koin.android.ext.android.get
 
 abstract class BaseFragment : Fragment() {
+
     private var runOnResume: Runnable? = null
     private var isAfterOnSavedState: Boolean = false
 

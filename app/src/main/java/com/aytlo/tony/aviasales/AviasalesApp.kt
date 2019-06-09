@@ -7,7 +7,6 @@ import com.aytlo.tony.aviasales.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-
 class AviasalesApp : Application() {
 
     override fun onCreate() {

@@ -10,11 +10,10 @@ class FlightViewModel(private val flightRepository: FlightRepository) : BaseView
     val arrival = MutableLiveData<String>()
     val validationState = MutableLiveData<Boolean>()
 
-
     fun prepareScreen() {
         val flight = flightRepository.getFlight()
-        val departureCity = flight?.departurePoint?.name ?: EMPTY
-        val arrivalCity = flight?.arrivalPoint?.name ?: EMPTY
+        val departureCity = flight.departurePoint?.name ?: EMPTY
+        val arrivalCity = flight.arrivalPoint?.name ?: EMPTY
 
         arrival.value = arrivalCity
         departure.value = departureCity

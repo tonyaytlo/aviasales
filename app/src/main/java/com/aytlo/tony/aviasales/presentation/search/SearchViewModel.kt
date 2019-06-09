@@ -50,7 +50,7 @@ class SearchViewModel(
     }
 
     fun onItemClick(city: City) {
-        flightRepository.saveFlight(flightRepository.getFlight()?.apply {
+        flightRepository.saveFlight(flightRepository.getFlight().apply {
             if (isDeparture) {
                 departurePoint = city
             } else {

@@ -5,7 +5,6 @@ import com.aytlo.tony.aviasales.data.model.City
 import com.aytlo.tony.aviasales.presentation.base.adapter.BaseRViewHolder
 import kotlinx.android.synthetic.main.li_search.*
 
-
 class SearchItemHolder(
     clickListener: (City) -> Unit,
     itemView: View

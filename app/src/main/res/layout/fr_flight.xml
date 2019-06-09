@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:padding="@dimen/margin_padding_normal"
+             android:background="@color/aviasalesPrimary"
+             android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etDeparturePoint"
+                    style="@style/DisabledEditText"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/margin_padding_xnormal"
+                    android:hint="@string/point_of_departure_hint"
+                    android:layout_height="wrap_content"/>
+
+            <View android:layout_width="match_parent"
+                  android:background="@color/colorDividerLight"
+                  android:layout_marginStart="@dimen/margin_padding_xnormal"
+                  android:layout_marginEnd="@dimen/margin_padding_xnormal"
+                  android:layout_height="@dimen/divider_size"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etArrivalPoint"
+                    android:layout_width="match_parent"
+                    style="@style/DisabledEditText"
+                    android:padding="@dimen/margin_padding_xnormal"
+                    android:hint="@string/point_of_arrival_hint"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSearch"
+            android:padding="@dimen/margin_padding_xnormal"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_rounded"
+            android:layout_marginBottom="@dimen/margin_padding_normal"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_xxnormal"
+            android:text="@string/search_flights_btn"
+            android:textColor="@color/colorTextWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+</FrameLayout>

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">aviasales</string>
+    <string name="app_name">Aviasales</string>
+
+    <!--region Flight screen -->
+    <string name="point_of_departure_hint">Откуда полетим?</string>
+    <string name="point_of_arrival_hint">Куда полетим?</string>
+    <string name="search_flights_btn">Найти билеты</string>
+    <!--endregion-->
 </resources>

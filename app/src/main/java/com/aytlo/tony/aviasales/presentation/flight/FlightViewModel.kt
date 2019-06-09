@@ -13,8 +13,8 @@ class FlightViewModel(private val flightRepository: FlightRepository) : BaseView
 
     fun prepareScreen() {
         val flight = flightRepository.getFlight()
-        val departureCity = flight?.departurePoint?.city ?: EMPTY
-        val arrivalCity = flight?.arrivalPoint?.city ?: EMPTY
+        val departureCity = flight?.departurePoint?.name ?: EMPTY
+        val arrivalCity = flight?.arrivalPoint?.name ?: EMPTY
 
         arrival.value = arrivalCity
         departure.value = departureCity

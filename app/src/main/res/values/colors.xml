@@ -8,6 +8,7 @@
     <color name="aviasalesPrimary">#FF009DCF</color>
 
     <color name="colorTextBlack">#323643</color>
+    <color name="colorTextGray">#C0C0C0</color>
     <color name="colorTextWhite">#ffffff</color>
 
     <color name="colorBtnEnabled">#FFF87C2C</color>

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.aytlo.tony.aviasales.R
 import com.aytlo.tony.aviasales.presentation.base.fragment.BaseFragment
+import com.aytlo.tony.aviasales.presentation.search.SearchActivity
 import kotlinx.android.synthetic.main.fr_flight.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -20,20 +21,28 @@ class FlightFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         setListeners()
         observeData()
+    }
+
+    override fun onStart() {
+        super.onStart()
         viewModel.prepareScreen()
     }
 
     private fun setListeners() {
         btnSearch.setOnClickListener { }
-        etDeparturePoint.setOnClickListener { }
-        etArrivalPoint.setOnClickListener { }
+        tvDeparturePoint.setOnClickListener { openSearch(true) }
+        tvArrivalPoint.setOnClickListener { openSearch(false) }
+    }
+
+    private fun openSearch(isDeparture: Boolean) {
+        startActivity(SearchActivity.makeIntent(requireContext(), isDeparture))
     }
 
     private fun observeData() {
         viewModel.let { vm ->
             vm.validationState.observe(this, Observer { btnSearch.isEnabled = it })
-            vm.arrival.observe(this, Observer { etArrivalPoint.setText(it) })
-            vm.departure.observe(this, Observer { etDeparturePoint.setText(it) })
+            vm.arrival.observe(this, Observer { tvArrivalPoint.text = it })
+            vm.departure.observe(this, Observer { tvDeparturePoint.text = it })
         }
     }
 }

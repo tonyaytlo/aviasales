@@ -32,7 +32,7 @@ open class ErrorHandler(
             errorView.showAuthError(e)
         } else {
             try {
-                val errorBody = e.response()?.errorBody()!!.string()
+                val errorBody = e.response()?.errorBody()?.string()
                 val errorBean = gson.fromJson(errorBody, ErrorBean::class.java)
                 if (errorBean != null) {
                     errorView.showProtocolError(errorBean)

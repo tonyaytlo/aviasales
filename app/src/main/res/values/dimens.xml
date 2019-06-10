@@ -30,6 +30,5 @@
     <dimen name="item_list_height">100dp</dimen>
 
     <dimen name="marker_corner_radius">12dp</dimen>
-
     <!--endregion-->
 </resources>

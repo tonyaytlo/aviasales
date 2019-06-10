@@ -5,7 +5,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:padding="@dimen/margin_padding_normal"
-        android:background="@color/aviasalesPrimary"
+        android:background="@color/colorPrimary"
         android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView

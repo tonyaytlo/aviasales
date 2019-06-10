@@ -23,7 +23,7 @@ object MarkerBitmapBuilder {
             textAlign = Paint.Align.CENTER
         }
         val backgroundPaint = Paint().apply {
-            color = context.getColorRes(R.color.marker_color)
+            color = context.getColorRes(R.color.colorMarker)
             pathEffect = CornerPathEffect(context.resources.getDimension(R.dimen.marker_corner_radius))
         }
 

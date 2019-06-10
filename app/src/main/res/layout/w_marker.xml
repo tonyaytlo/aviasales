@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+            android:id="@+id/tvTitle"
+            android:paddingStart="@dimen/margin_padding_small"
+            android:paddingEnd="@dimen/margin_padding_small"
+            android:paddingTop="@dimen/margin_padding_tiny"
+            android:paddingBottom="@dimen/margin_padding_tiny"
+            android:textSize="@dimen/text_size_xnormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</FrameLayout>

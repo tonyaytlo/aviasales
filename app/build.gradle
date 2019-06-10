@@ -66,6 +66,9 @@ dependencies {
     // map
     implementation "com.google.android.gms:play-services-maps:$googleMapsVersion"
 
+    // map utils
+    implementation "com.google.maps.android:android-maps-utils:$googleMapsUtil"
+
     // test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

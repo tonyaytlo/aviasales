@@ -9,4 +9,5 @@ ext {
     retrofitVersion = '2.6.0'
     koinVersion = '2.0.1'
     googleMapsVersion = '16.1.0'
+    googleMapsUtil = '0.5'
 }

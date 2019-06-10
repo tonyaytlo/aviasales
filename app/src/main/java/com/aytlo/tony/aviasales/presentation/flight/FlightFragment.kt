@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.aytlo.tony.aviasales.R
 import com.aytlo.tony.aviasales.presentation.base.fragment.BaseFragment
+import com.aytlo.tony.aviasales.presentation.map.MapActivity
 import com.aytlo.tony.aviasales.presentation.search.SearchActivity
 import kotlinx.android.synthetic.main.fr_flight.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -29,7 +30,7 @@ class FlightFragment : BaseFragment() {
     }
 
     private fun setListeners() {
-        btnSearch.setOnClickListener { }
+        btnSearch.setOnClickListener { startActivity(MapActivity.makeIntent(requireContext())) }
         tvDeparturePoint.setOnClickListener { openSearch(true) }
         tvArrivalPoint.setOnClickListener { openSearch(false) }
     }

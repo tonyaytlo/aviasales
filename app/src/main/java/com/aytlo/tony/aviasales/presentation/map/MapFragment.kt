@@ -51,6 +51,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         this.map = map
+        map.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.map_style))
         viewModel.onMapReady()
     }
 

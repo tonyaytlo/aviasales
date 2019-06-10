@@ -53,7 +53,7 @@ class SearchFragment : BaseFragment() {
     private fun observeData() {
         viewModel.let { vm ->
             vm.cities.observe(this, Observer { adapter.showItems(it) })
-            vm.exit.observe(this, Observer { activity?.onBackPressed() })
+            vm.exitEvent.observe(this, Observer { activity?.onBackPressed() })
         }
     }
 

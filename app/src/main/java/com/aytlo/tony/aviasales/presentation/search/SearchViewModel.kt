@@ -22,7 +22,7 @@ class SearchViewModel(
 ) : BaseViewModel() {
 
     val cities = MutableLiveData<List<City>>()
-    val exit = SingleLiveEvent<Nothing>()
+    val exitEvent = SingleLiveEvent<Nothing>()
 
     private val broadcastText = ConflatedBroadcastChannel<String>()
     private var searchJob: Job? = null
@@ -50,6 +50,11 @@ class SearchViewModel(
     }
 
     fun onItemClick(city: City) {
+        saveCity(city)
+        exitEvent.call()
+    }
+
+    private fun saveCity(city: City) {
         flightRepository.saveFlight(flightRepository.getFlight().apply {
             if (isDeparture) {
                 departurePoint = city
@@ -57,7 +62,6 @@ class SearchViewModel(
                 arrivalPoint = city
             }
         })
-        exit.call()
     }
 
     companion object {

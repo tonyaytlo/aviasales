@@ -131,8 +131,6 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putLong(ARG_CURRENT_ANIMATION_TIME, planeAnimator.currentPlayTime)
-        planeAnimator.cancel()
-
         super.onSaveInstanceState(outState)
     }
 

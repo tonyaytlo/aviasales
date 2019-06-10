@@ -17,6 +17,6 @@ class MapViewModel(private val flightRepository: FlightRepository) : BaseViewMod
         if (departure == null || arrival == null) {
             throw IllegalArgumentException("flight is not complete")
         }
-        eventStartAnimation.value = departure to arrival
+        eventStartAnimation.postValue(departure to arrival)
     }
 }

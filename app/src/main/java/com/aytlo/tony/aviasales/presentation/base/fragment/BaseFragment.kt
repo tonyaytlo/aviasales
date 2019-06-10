@@ -58,7 +58,8 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    protected open fun createErrorObserver(): Observer<Throwable>? = ErrorHandler(ToastErrorView(activity!!), get())
+    protected open fun createErrorObserver(): Observer<Throwable>? =
+        ErrorHandler(ToastErrorView(requireActivity()), get())
 
     @LayoutRes
     protected abstract fun getLayout(): Int

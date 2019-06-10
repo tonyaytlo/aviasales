@@ -10,11 +10,12 @@ class MapViewModel(private val flightRepository: FlightRepository) : BaseViewMod
     val eventStartAnimation = SingleLiveEvent<Pair<City, City>>()
 
     fun onMapReady() {
-        val fligh = flightRepository.getFlight()
-        val departure = fligh.departurePoint
-        val arrival = fligh.arrivalPoint
+        val flight = flightRepository.getFlight()
+        val departure = flight.departurePoint
+        val arrival = flight.arrivalPoint
+
         if (departure == null || arrival == null) {
-            throw IllegalArgumentException()
+            throw IllegalArgumentException("flight is not complete")
         }
         eventStartAnimation.value = departure to arrival
     }

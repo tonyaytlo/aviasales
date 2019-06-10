@@ -23,14 +23,10 @@ import org.koin.android.ext.android.get
 class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     private val viewModel: MapViewModel = get()
-
-    private lateinit var googleMap: GoogleMap
-
-    private lateinit var planeMarker: Marker
-
     private var currentAnimationTime = 0L
-
-    private lateinit var foregroundRouteAnimator: ObjectAnimator
+    private lateinit var map: GoogleMap
+    private lateinit var planeMarker: Marker
+    private lateinit var planeAnimator: ObjectAnimator
 
     override fun getLayout() = R.layout.fr_map
 
@@ -54,12 +50,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap) {
-        googleMap = map
+        this.map = map
         viewModel.onMapReady()
     }
 
     private fun startLoading(flight: Pair<City, City>) {
-
         val departure = flight.first.location.toLatLng()
         val arrival = flight.second.location.toLatLng()
 
@@ -71,7 +66,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun addPlaneMarker(departure: LatLng, arrival: LatLng) {
-        planeMarker = googleMap.addMarker(
+        planeMarker = map.addMarker(
             MarkerOptions()
                 .position(departure)
                 .flat(true)
@@ -82,7 +77,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun animatePlane(departure: LatLng, arrival: LatLng) {
-        foregroundRouteAnimator = ObjectAnimator
+        planeAnimator = ObjectAnimator
             .ofObject(this, "animatedLatLng", RouteEvaluator(), departure, arrival).apply {
                 interpolator = AccelerateDecelerateInterpolator()
                 duration = ANIMATION_DURATION
@@ -105,7 +100,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             pattern(polylinePattern)
         }
 
-        googleMap.addPolyline(polyline)
+        map.addPolyline(polyline)
     }
 
     private fun moveCamera(departure: LatLng, arrival: LatLng) {
@@ -113,14 +108,14 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
             .include(departure)
             .include(arrival)
             .build()
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, MAP_POINTS_PADDING))
+        map.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, MAP_POINTS_PADDING))
     }
 
     private fun addPointsMarker(departure: City, arrival: City) {
         val departureMarker = createPointMarker(departure.location.toLatLng(), departure.name)
         val arrivalMarker = createPointMarker(arrival.location.toLatLng(), arrival.name)
 
-        googleMap.run {
+        map.run {
             addMarker(departureMarker)
             addMarker(arrivalMarker)
         }
@@ -134,8 +129,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putLong(ARG_CURRENT_ANIMATION_TIME, foregroundRouteAnimator.currentPlayTime)
-        foregroundRouteAnimator.cancel()
+        outState.putLong(ARG_CURRENT_ANIMATION_TIME, planeAnimator.currentPlayTime)
+        planeAnimator.cancel()
 
         super.onSaveInstanceState(outState)
     }

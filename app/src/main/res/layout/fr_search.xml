@@ -7,7 +7,10 @@
 
     <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etCity"
-            android:layout_margin="@dimen/margin_padding_normal"
+            android:layout_marginStart="@dimen/margin_padding_normal"
+            android:layout_marginEnd="@dimen/margin_padding_normal"
+            android:layout_marginTop="@dimen/margin_padding_normal"
+            android:layout_marginBottom="@dimen/margin_padding_small"
             android:hint="@string/search_city_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

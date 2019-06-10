@@ -6,4 +6,8 @@
     <string name="point_of_arrival_hint">Куда полетим?</string>
     <string name="search_flights_btn">Найти билеты</string>
     <!--endregion-->
+
+    <!--region Search screen -->
+    <string name="search_city_hint">Введите название города</string>
+    <!--endregion-->
 </resources>

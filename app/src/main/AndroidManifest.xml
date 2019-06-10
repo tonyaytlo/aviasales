@@ -26,7 +26,8 @@
 
         <activity android:name=".presentation.search.SearchActivity"/>
 
-        <activity android:name=".presentation.map.MapActivity"/>
+        <activity android:name=".presentation.map.MapActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
                 android:name="com.google.android.geo.API_KEY"

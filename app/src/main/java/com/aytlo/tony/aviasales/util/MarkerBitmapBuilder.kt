@@ -22,15 +22,24 @@ object MarkerBitmapBuilder {
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
             textAlign = Paint.Align.CENTER
         }
+        val cornerPath = CornerPathEffect(context.resources.getDimension(R.dimen.marker_corner_radius))
         val backgroundPaint = Paint().apply {
+            isAntiAlias = true
             color = context.getColorRes(R.color.colorMarker)
-            pathEffect = CornerPathEffect(context.resources.getDimension(R.dimen.marker_corner_radius))
+            pathEffect = cornerPath
         }
+        val backgroundBorderPaint = Paint().apply {
+            color = Color.WHITE
+            style = Paint.Style.STROKE
+            strokeWidth = context.resources.getDimension(R.dimen.marker_border)
+            pathEffect = cornerPath
+        }
+        val markerRect = RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat())
+        val borderInset = backgroundBorderPaint.strokeWidth / 2
 
         canvas.run {
-            drawRect(
-                RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()), backgroundPaint
-            )
+            drawRect(markerRect, backgroundPaint)
+            drawRect(markerRect.apply { inset(borderInset, borderInset) }, backgroundBorderPaint)
             translate(0f, -(paintText.descent() + paintText.ascent()) / 2)
             drawText(title, measuredView.measuredWidth / 2f, measuredView.measuredHeight / 2F, paintText)
         }

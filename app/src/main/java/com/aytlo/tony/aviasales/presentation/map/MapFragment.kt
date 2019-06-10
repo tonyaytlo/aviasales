@@ -46,7 +46,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun observeData() {
-        viewModel.eventStartAnimation.observe(this, Observer { startLoading(it) })
+        viewModel.eventStartAnimation.observe(this, Observer { startScene(it) })
     }
 
     override fun onMapReady(map: GoogleMap) {
@@ -55,7 +55,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         viewModel.onMapReady()
     }
 
-    private fun startLoading(flight: Pair<City, City>) {
+    private fun startScene(flight: Pair<City, City>) {
         val departure = flight.first.location.toLatLng()
         val arrival = flight.second.location.toLatLng()
 

@@ -10,8 +10,8 @@ class RouteEvaluator : TypeEvaluator<LatLng> {
         val lat = startPoint.latitude + t * (endPoint.latitude - startPoint.latitude)
         var lngDelta = endPoint.longitude - startPoint.longitude
 
-        if (Math.abs(lngDelta) > THREE_HUNDRED_SIXTY / 2) {
-            lngDelta -= Math.signum(lngDelta) * THREE_HUNDRED_SIXTY
+        if (Math.abs(lngDelta) > ONE_HUNDRED_EIGHTY_DEGREES) {
+            lngDelta -= Math.signum(lngDelta) * THREE_HUNDRED_SIXTY_DEGREES
         }
         val lng = lngDelta * t + startPoint.longitude
 
@@ -19,6 +19,7 @@ class RouteEvaluator : TypeEvaluator<LatLng> {
     }
 
     companion object {
-        private const val THREE_HUNDRED_SIXTY = 360
+        private const val THREE_HUNDRED_SIXTY_DEGREES = 360
+        private const val ONE_HUNDRED_EIGHTY_DEGREES = 180
     }
 }

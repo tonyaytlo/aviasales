@@ -9,5 +9,6 @@
 
     <!--region Search screen -->
     <string name="search_city_hint">Введите название города</string>
+    <string name="check_internet_connection_error">Проверьте интенет соединение</string>
     <!--endregion-->
 </resources>

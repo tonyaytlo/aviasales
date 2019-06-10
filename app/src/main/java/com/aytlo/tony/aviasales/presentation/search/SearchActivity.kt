@@ -8,13 +8,14 @@ import com.aytlo.tony.aviasales.presentation.search.SearchFragment.Companion.ARG
 class SearchActivity : SingleFragmentActivity() {
 
     override fun createFragment() =
-        SearchFragment.makeFragment(intent?.extras?.getBoolean(ARG_IS_DEPARTURE, false) ?: false)
+        SearchFragment.makeFragment(intent?.extras?.getBoolean(ARG_IS_DEPARTURE) ?: false)
 
     companion object {
-        fun makeIntent(context: Context, isDeparture: Boolean) =
-            Intent(context, SearchActivity::class.java)
+        fun makeIntent(context: Context, isDeparture: Boolean): Intent {
+            return Intent(context, SearchActivity::class.java)
                 .apply {
                     putExtra(ARG_IS_DEPARTURE, isDeparture)
                 }
+        }
     }
 }

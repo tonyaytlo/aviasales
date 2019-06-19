@@ -12,7 +12,8 @@ class SearchAdapter(private val clickListener: (City) -> Unit) : RecyclerView.Ad
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchItemHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return SearchItemHolder(clickListener, inflater.inflate(R.layout.li_search, parent, false))
+        val view = inflater.inflate(R.layout.li_search, parent, false)
+        return SearchItemHolder(clickListener, view)
     }
 
     override fun onBindViewHolder(holder: SearchItemHolder, position: Int) = holder.bind(items[position])

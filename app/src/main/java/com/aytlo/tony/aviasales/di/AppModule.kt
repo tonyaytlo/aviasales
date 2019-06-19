@@ -28,12 +28,6 @@ val appModule = module {
             .client(get())
             .addConverterFactory(GsonConverterFactory.create(get()))
             .build()
-    }
-
-    single {
-        (get() as Retrofit).newBuilder()
-            .baseUrl((get() as UrlProvider).url)
-            .build()
             .create(AviasalesRepository::class.java)
     }
 }

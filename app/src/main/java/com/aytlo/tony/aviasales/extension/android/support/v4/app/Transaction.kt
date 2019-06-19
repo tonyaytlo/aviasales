@@ -21,7 +21,7 @@ class Transaction(val fm: FragmentManager, val fragment: Fragment, val type: Typ
             }
         }
 
-        if (type == Type.REPLACE) {
+        if (type == Type.ADD) {
             tr.add(R.id.flContainer, fragment, fragment.javaClass.name)
         } else {
             tr.replace(R.id.flContainer, fragment, fragment.javaClass.name)

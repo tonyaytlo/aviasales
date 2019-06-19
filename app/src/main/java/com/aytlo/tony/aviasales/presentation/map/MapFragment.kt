@@ -26,7 +26,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     private var currentAnimationTime = 0L
     private lateinit var map: GoogleMap
     private lateinit var planeMarker: Marker
-    private lateinit var planeAnimator: ObjectAnimator
+    private var planeAnimator: ObjectAnimator? = null
 
     override fun getLayout() = R.layout.fr_map
 
@@ -130,8 +130,16 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putLong(ARG_CURRENT_ANIMATION_TIME, planeAnimator.currentPlayTime)
+        planeAnimator?.let {
+            outState.putLong(ARG_CURRENT_ANIMATION_TIME, it.currentPlayTime)
+
+        }
         super.onSaveInstanceState(outState)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        planeAnimator?.cancel()
     }
 
     companion object {
